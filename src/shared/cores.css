@@ -1,0 +1,29 @@
+:root {
+    --cor-primaria: #0C2E59;
+    --cor-shadow: #757575;
+    --cor-base: #ffffff;
+    --cor-base-dois: #EDEDED;
+    --cor-dois: #0E2F73;
+    --cor-tres: #042440;
+    --cor-quatro: #EDB200;
+    --cor-cinco: #B88E0F;
+    --cor-seis: #500227;
+    --cor-sete: #750037;
+    --cor-oito: #A2004C;
+    --cor-nove: #BF216B;
+    --cor-dez: #CA518A;
+    --cor-onze: #DD95B7;
+    --cor-doze: #0339A6;
+    --cor-treze: #2864DE;
+    --cor-quatorze: #6799FF;
+    --cor-quinze: #067493;
+    --cor-dezesseis:#22A1C4;
+    --cor-dezessete:#47C2E5;
+    --cor-dezoito: #A9E4F4;
+    --cor-ferias: #9E9E9E;
+    --cor-limite: #c7c7c7;
+    --cor-menu-hover:#052C4E;
+    
+    
+    
+}

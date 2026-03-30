@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profplan</title>
+    <link rel="stylesheet" type="text/css" href="../shared/cores.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./style_login.css"/>
+    <link rel="stylesheet" type="text/css" href="../shared/padrao.css"/>
+</head>
+<body>
+    <section class="esquerda">
+        <div class="cima">
+            <img src="./img/logo.png"/>
+            <h2>
+                PROF<br>PLAN
+            </h2>
+        </div>
+        <p> Este sistema centraliza informações sobre técnicos de ensino, turmas e outros recursos importantes, oferecendo uma experiência prática e estratégica para organizar suas atividades com eficiência.</p><br>
+        <p> Desenhado e desenvolvido por Julia Maria Viudes Costa</p>
+        <div class="baixo">
+            
+    </section>
+    <div class="direita">
+        <form action="/api/logar" method="POST">
+            <h2>Login</h2>
+            <label for="matricula">Usuário</label>
+            <input type="text" id="matricula" name="matricula" placeholder="Digite aqui sua matrícula" required>            
+            <p>Apenas números, sem o 3 na frente</p>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite aqui sua senha">
+            <button type="submit">Entrar
+                <svg width="1.57vw" height="3.5vh" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_150_149)">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99998 2.49998C5.85784 2.49998 2.49998 5.85784 2.49998 9.99998C2.49998 14.1421 5.85784 17.5 9.99998 17.5C14.1421 17.5 17.5 14.1421 17.5 9.99998C17.5 5.85784 14.1421 2.49998 9.99998 2.49998ZM0.833313 9.99998C0.833313 4.93737 4.93737 0.833313 9.99998 0.833313C15.0626 0.833313 19.1666 4.93737 19.1666 9.99998C19.1666 15.0626 15.0626 19.1666 9.99998 19.1666C4.93737 19.1666 0.833313 15.0626 0.833313 9.99998Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.41076 6.07739C9.7362 5.75195 10.2638 5.75195 10.5893 6.07739L13.9226 9.41072C14.248 9.73616 14.248 10.2638 13.9226 10.5892L10.5893 13.9226C10.2638 14.248 9.7362 14.248 9.41076 13.9226C9.08533 13.5971 9.08533 13.0695 9.41076 12.7441L12.1548 9.99998L9.41076 7.2559C9.08533 6.93047 9.08533 6.40283 9.41076 6.07739Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.83331 10C5.83331 9.53978 6.20641 9.16669 6.66665 9.16669H13.3333C13.7936 9.16669 14.1666 9.53978 14.1666 10C14.1666 10.4603 13.7936 10.8334 13.3333 10.8334H6.66665C6.20641 10.8334 5.83331 10.4603 5.83331 10Z" fill="currentColor"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_150_149">
+                    <rect width="20" height="20" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>                       
+            </button>
+        </form>
+    </div>
+    <script>
+        
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const matricula = document.getElementById('matricula').value.trim();
+            const senha = document.getElementById('senha').value.trim();
+
+            if (!matricula || !senha) {
+                event.preventDefault();
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if ((urlParams.has('erro') && urlParams.get('erro') === 'true')) {
+            alert('Matrícula ou senha incorretos');
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

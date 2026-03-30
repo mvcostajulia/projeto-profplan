@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profplan</title>
+    <link rel="stylesheet" type="text/css" href="../shared/cores.css">
+    <link rel="stylesheet" type="text/css" href="./style_gerenciar_tecnico.css"/>
+    <link rel="stylesheet" type="text/css" href="../shared/padrao.css"/>
+    <script src="../shared/header.js"></script>
+    <script src="./header_config.js"></script>
+</head>
+<body>
+    <div class="corpo">
+        <p>Os cadastros podem ser gerenciados pelos próprios técnicos a quem pertencem e pelo seu facilitador de área. A exclusão de registros é restrita aos administradores. <br> ATENÇÃO: Ao cadastrar uma data de ausência, férias ou horas-atividade, o calendário permanecerá bloqueado para qualquer vínculo no dia e horário em questão.</p>
+        <div class="corpo-frame">
+            <form id="novo-tecnico">
+                <div class="juntar">
+                    <input type="hidden" id="id" name="id"/>
+                    <section class="textos">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite aqui o nome do tecnico" required readonly/>
+                    </section>
+                    <section class="textos">
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" id="matricula" name="matricula" placeholder="Digite aqui a matrícula" required />
+                    </section>
+                    <section class="checklist">
+                        <div class="select-status">
+                            <label for="status">Status</label><br>
+                            <select id="status" name="status" disabled>                                  
+                                <option value="Ativo">Ativo</option>
+                                <option value="Inativo">Inativo</option>
+                            </select>
+                        </div>
+                    </section>
+                </div>
+                <div class="juntar">
+                    <section class="checklist">
+                        <div class="select-area">
+                            <label for="area">Área</label><br>
+                            <select id="area" name="area" disabled>                                                           
+                                <option value="Alimentos">Alimentos</option>  
+                                <option value="Apoio Educação">Apoio Educação</option>
+                                <option value="Automotiva">Automotiva</option>                                                      
+                                <option value="Construção Civil">Construção Civil</option>
+                                <option value="Eletroeletrônica">Eletroeletrônica</option>
+                                <option value="Gestão">Gestão</option>
+                                <option value="Madeira e Mobiliária">Madeira e Mobiliária</option>
+                                <option value="Metalmecânica">Metalmecânica</option>
+                                <option value="Segurança do Trabalho">Segurança do Trabalho</option>
+                                <option value="Tecnologia da Informação">Tecnologia da Informação</option>
+                                <option value="Vestuário">Vestuário</option>
+                            </select>
+                        </div>
+                    </section>
+                    <section class="checklist">    
+                        <div class="select-turno">
+                            <label for="turno">Turno</label><br>
+                            <select id="turno" name="turno" disabled>                                
+                                <option value="Matutino">Matutino</option>
+                                <option value="Vespertino">Vespertino</option>
+                                <option value="Noturno">Noturno</option>
+                                <option value="Matutino e Vespertino">Matutino e Vespertino</option>
+                                <option value="Vespertino e Noturno">Vespertino e Noturno</option>
+                            </select>
+                        </div>
+                    </section>
+                    <section class="checklist">
+                        <div class="select-tipo-contratacao">
+                            <label for="tipoContratacao">Tipo contratação</label><br>
+                            <select id="tipoContratacao" name="tipoContratacao" disabled>                                
+                                <option value="Intermitente">Intermitente</option>
+                                <option value="Mensalista">Mensalista</option>
+                                <option value="RPA">RPA</option>
+                            </select>
+                        </div>
+                    </section>
+                </div>
+                <div class="hora">
+                    <p>Horários de trabalho</p>
+                </div>
+                <section> 
+                    <div class="calendar">
+                        <table id="segunda">
+                            <thead class="dayline">
+                                <tr class="date-day">
+                                    <th>Segunda</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <table id="terca">
+                            <thead class="dayline">
+                                <tr class="date-day">
+                                    <th>Terça</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <table id="quarta">
+                            <thead class="dayline">
+                                <tr class="date-day">
+                                    <th>Quarta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <table id="quinta">
+                            <thead class="dayline">
+                                <tr class="date-day">
+                                    <th>Quinta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <table id="sexta">
+                            <thead class="dayline">
+                                <tr class="date-day">
+                                    <th>Sexta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <p>Férias, ausências e horas-atividade</p>
+                <section> 
+                    <div class="list-ausencias">
+                        <table id="aus">
+                            <thead class="dayline">
+                                <tr class="date-day">
+                                    <th>Rótulo</th>
+                                    <th>Data inicial</th>
+                                    <th>Data final</th>
+                                    <th>Horário inicial</th>
+                                    <th>Horário final</th>
+                                    <th>Dias da semana</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>    
+                <div class="juntar">
+                <button class="botoes" id="voltar"><a href="/tecnicos"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 3C7.52944 3 3.5 7.02944 3.5 12C3.5 16.9706 7.52944 21 12.5 21C17.4706 21 21.5 16.9706 21.5 12C21.5 7.02944 17.4706 3 12.5 3ZM1.5 12C1.5 5.92487 6.42487 1 12.5 1C18.5751 1 23.5 5.92487 23.5 12C23.5 18.0751 18.5751 23 12.5 23C6.42487 23 1.5 18.0751 1.5 12Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2071 7.29289C13.5976 7.68342 13.5976 8.31658 13.2071 8.70711L9.91421 12L13.2071 15.2929C13.5976 15.6834 13.5976 16.3166 13.2071 16.7071C12.8166 17.0976 12.1834 17.0976 11.7929 16.7071L7.79289 12.7071C7.40237 12.3166 7.40237 11.6834 7.79289 11.2929L11.7929 7.29289C12.1834 6.90237 12.8166 6.90237 13.2071 7.29289Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 12C7.5 11.4477 7.94772 11 8.5 11H16.5C17.0523 11 17.5 11.4477 17.5 12C17.5 12.5523 17.0523 13 16.5 13H8.5C7.94772 13 7.5 12.5523 7.5 12Z" fill="white"/>
+                        </svg>Voltar</a>                     
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+
+    window.onload = function() {
+        const tecnicoData = JSON.parse(localStorage.getItem('tecnicoData'));
+        if (tecnicoData) {
+            document.getElementById('id').value=tecnicoData[0]._id;
+            document.getElementById('nome').value = tecnicoData[0].nome;
+            document.getElementById('turno').value = tecnicoData[0].turno;
+            document.getElementById('area').value = tecnicoData[0].area;
+            document.getElementById('tipoContratacao').value = tecnicoData[0].tipoContratacao;
+            document.getElementById('status').value=tecnicoData[0].status;
+            document.getElementById('matricula').value=tecnicoData[0].matricula;
+            const diasSemana = ["","","segunda", "terca", "quarta", "quinta", "sexta"];
+
+            if (Array.isArray(tecnicoData[0].horarios)) {
+                tecnicoData[0].horarios.forEach(horario => {
+                    const diaSemana = parseInt(horario.diaSemana);
+                    if (isNaN(diaSemana) || diaSemana < 1 || diaSemana > 6) {
+                        console.warn("Dia da semana inválido ou não definido", horario);
+                        return;
+                    }
+                    const nomeDia = diasSemana[diaSemana]; 
+                    console.log(nomeDia)
+                    if (nomeDia) {
+                    const tabela = document.getElementById(nomeDia);
+                        if (tabela) {
+                            const tbody = tabela.querySelector("tbody");
+                            const linhaInicio = tbody.insertRow();
+                            const horarioCelulaInicio = linhaInicio.insertCell(0);
+                            horarioCelulaInicio.textContent = horario.horarioInicial;
+                            horarioCelulaInicio.classList.add("selecionado", "inicio");
+                            horarioCelulaInicio.setAttribute("dia", diaSemana);
+                            if (horario.intervaloInicial && horario.intervaloFim) {
+                                const linhaIntervInicio = tbody.insertRow();
+                                const horarioIntervInicio = linhaIntervInicio.insertCell(0);
+                                horarioIntervInicio.textContent = horario.intervaloInicial;
+                                horarioIntervInicio.classList.add("intervalo");
+                                horarioIntervInicio.setAttribute("dia", diaSemana);
+
+                                const linhaIntervFim = tbody.insertRow();
+                                const horarioIntervFim = linhaIntervFim.insertCell(0);
+                                horarioIntervFim.textContent = horario.intervaloFim;
+                                horarioIntervFim.classList.add("intervalo");
+                                horarioIntervFim.setAttribute("dia", diaSemana);
+                            }
+                            const linhaFim = tbody.insertRow();
+                            const horarioCelulaFim = linhaFim.insertCell(0);
+                            horarioCelulaFim.textContent = horario.horarioFinal;
+                            horarioCelulaFim.classList.add("selecionado", "fim");
+                            horarioCelulaFim.setAttribute("dia", diaSemana);
+                        }
+                    }
+                });
+            }
+            if (Array.isArray(tecnicoData[0].ausencias)) {
+                const tabelaAus = document.querySelector("#aus tbody");
+                tecnicoData[0].ausencias.forEach(ausencia => {
+                    let datainicio = new Date(ausencia.dataInicial.split('/').reverse().join('-'));
+                    let datafim = new Date(ausencia.dataFinal.split('/').reverse().join('-'));
+                    datainicio.setHours(datainicio.getHours() + 3);
+                    datafim.setHours(datafim.getHours() + 3);
+
+                    const registro = tabelaAus.insertRow();
+                    registro.classList.add("registro");
+
+                    const registroRotulo = registro.insertCell();
+                    const registroDataInicial = registro.insertCell();
+                    const registroDataFinal = registro.insertCell();
+                    const registroHoraInicial = registro.insertCell();
+                    const registroHoraFinal = registro.insertCell();
+                    const registroDiaSemana = registro.insertCell();
+                    const registroAcao = registro.insertCell();
+
+                    registroRotulo.textContent = ausencia.rotulo;
+                    registroDataInicial.textContent = datainicio.toLocaleDateString("pt-BR");
+                    registroDataFinal.textContent = datafim.toLocaleDateString("pt-BR");
+                    registroHoraInicial.textContent = ausencia.horaAusInicial || "-";
+                    registroHoraFinal.textContent = ausencia.horaAusfinal || "-";
+                    let texto = "";
+                    if (typeof ausencia.diasMarcados === "string" && ausencia.diasMarcados.trim() !== "") {
+                        const diasFormatados = ausencia.diasMarcados.replace(/([a-z])([A-Z])/g, '$1, $2');
+                        texto = diasFormatados.split(',').join('<br>');
+                    } else {
+                        texto = "-";
+                    }
+
+                    registroDiaSemana.innerHTML = texto;
+                });
+            }
+        } else {
+            console.error('Dados do técnico não encontrados no localStorage');
+        }
+    }
+    </script>
+    <script src="./script_gerenciar_tecnico.js"></script>
+</body>
+</html>

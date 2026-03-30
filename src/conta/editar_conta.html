@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profplan</title>
+    <link rel="stylesheet" type="text/css" href="../shared/cores.css">
+    <link rel="stylesheet" type="text/css" href="./style_gerenciar_conta.css"/>
+    <link rel="stylesheet" type="text/css" href="../shared/padrao.css"/>
+    <script src="../shared/header.js"></script>
+    <script src="./header_config.js"></script>
+</head>
+<body>
+    <div id="notificacao" class="notificacao oculto"></div>
+    <div class="corpo">
+        <p>Para garantir a segurança da sua conta, crie senhas com pelo menos 8 caracteres, combinando letras maiúsculas e minúsculas, números e símbolos.</p>
+        <div class="corpo-frame">
+                <form id="editar-conta">
+                    <section class="avatar">
+                        <button title="Editar avatar" class="avatares" type="button" id="avatares"><img class="avatares" id="avatar-usuario" src="../img/avatares/semfoto.png"/></button>
+                    </section>
+                    <section id="escolha-avatar">
+                        <div></div>
+                    </section>
+                    <div class="juntar">
+                        <input type="hidden" id="id" name="id"/>
+                        <section class="textos">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" required />
+                        </section>
+                        <section class="textos">
+                            <label for="matricula">Matrícula</label>
+                            <input type="text" id="matricula" name="matricula" readonly required />
+                        </section>
+                    </div>
+                    <div class="juntar senha">
+                        <section class="textos">
+                            <label for="nsenha1">Nova senha</label>
+                            <input type="password" id="nsenha1" name="nsenha1"/>
+                        </section>
+                        <section class="textos">
+                            <label for="nsenha2">Repita a nova senha</label>
+                            <input type="password" id="nsenha2" name="nsenha2"/>
+                            <label class="msg hidden" id="msg2">As senhas não são iguais</label>
+                        </section>
+                    </div>
+                    <div class="juntar">
+                    <button class="botoes" id="voltar"><a href="/index"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 3C7.52944 3 3.5 7.02944 3.5 12C3.5 16.9706 7.52944 21 12.5 21C17.4706 21 21.5 16.9706 21.5 12C21.5 7.02944 17.4706 3 12.5 3ZM1.5 12C1.5 5.92487 6.42487 1 12.5 1C18.5751 1 23.5 5.92487 23.5 12C23.5 18.0751 18.5751 23 12.5 23C6.42487 23 1.5 18.0751 1.5 12Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2071 7.29289C13.5976 7.68342 13.5976 8.31658 13.2071 8.70711L9.91421 12L13.2071 15.2929C13.5976 15.6834 13.5976 16.3166 13.2071 16.7071C12.8166 17.0976 12.1834 17.0976 11.7929 16.7071L7.79289 12.7071C7.40237 12.3166 7.40237 11.6834 7.79289 11.2929L11.7929 7.29289C12.1834 6.90237 12.8166 6.90237 13.2071 7.29289Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 12C7.5 11.4477 7.94772 11 8.5 11H16.5C17.0523 11 17.5 11.4477 17.5 12C17.5 12.5523 17.0523 13 16.5 13H8.5C7.94772 13 7.5 12.5523 7.5 12Z" fill="white"/>
+                            </svg>Voltar</a>                     
+                        </button>
+                        <button class="botoes" id="editar" type="submit">Salvar
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6677 9.2323C16.9536 9.532 16.9424 10.0067 16.6427 10.2927L11.1396 15.5427C10.8496 15.8193 10.3934 15.8191 10.1037 15.5422L7.35684 12.9172C7.05738 12.631 7.0466 12.1563 7.33278 11.8568C7.61895 11.5574 8.0937 11.5466 8.39317 11.8328L10.6223 13.963L15.6073 9.20734C15.907 8.92142 16.3817 8.93259 16.6677 9.2323Z" fill="currentColor"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.75C7.44365 3.75 3.75 7.44365 3.75 12C3.75 16.5563 7.44365 20.25 12 20.25C16.5563 20.25 20.25 16.5563 20.25 12C20.25 7.44365 16.5563 3.75 12 3.75ZM2.25 12C2.25 6.61522 6.61522 2.25 12 2.25C17.3848 2.25 21.75 6.61522 21.75 12C21.75 17.3848 17.3848 21.75 12 21.75C6.61522 21.75 2.25 17.3848 2.25 12Z" fill="currentColor"/>
+                            </svg>                  
+                        </button>
+                    </div>
+                </form>
+            </div>
+    </div>
+    <script src="./script_gerenciar_conta.js"></script>   
+</body>
+</html>

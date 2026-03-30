@@ -1,0 +1,417 @@
+body{
+    font-family: "Baloo 2 Semibold";
+    padding-top: 14vh;
+    margin: 0;
+    overflow: hidden;
+    user-select: none;
+}
+
+.rodape{
+    font-family:"Open Sans Regular" ;
+    width: 100%;
+    height: auto;
+    border-radius: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor:auto;
+    font-size: 1.2vw;
+    font-weight: 400;
+}
+
+div#paginacao{
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    justify-content: center;
+    align-items: center;
+    gap: 0.5vw;
+    margin-top: 0.5vw;
+}
+
+div#paginacao button{
+    font-family:"Open Sans Regular" ;
+    width: auto;
+    height: 2vw;
+    border: none;
+    border-radius: 0.5vw;
+    color: var(--cor-primaria);
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-weight: 400;
+}
+
+div#paginacao button[meio]{
+    background-color: var(--cor-primaria);
+    color: var(--cor-base);
+}
+
+button#voltar, button#anterior, button#proximo {
+    width: 7vw;
+    padding: 0.5vw;
+    border: none;
+    border-radius: 1vw;
+    background-color: var(--cor-base);
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    font-size: 1vw;
+    margin-bottom: 2vw;
+}
+
+/* Corpo da tela */
+.corpo{
+    color: var(--cor-primaria);
+    background-color: var(--cor-base-dois);
+    display: flex;
+    flex-direction: column;
+    font-family:"Open Sans Regular" ;
+    height: 86vh;
+    padding:3.4vh 3.14vw 8.4vh 3.14vw;
+    font-size: 1.1vw;
+}
+
+.corpo p{
+    margin: 0 0 4vh 0;
+    font-size: 0.9vw;
+}
+
+.corpo-cima{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2.80vh;
+}
+
+.pesquisa {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .pesquisa-input {
+    background-color: var(--cor-base);
+    border: none;
+    color: var(--cor-ferias);
+    padding:1vw;
+    border-radius: 4px;
+    width: 25vw;
+    height: 2vh;
+    transition: all ease-in-out .5s;
+  }
+  
+  .botao-pesquisa {
+    border: none;
+    background-color: var(--cor-base);
+    margin-left: -3vw;
+  }
+  
+  .botao-pesquisa:hover {
+    cursor: pointer;
+  }
+  
+  .icone-pesquisa {
+    height: 1.3em;
+    width: 1.3em;
+  }
+
+.utilitarios{ 
+    display: flex;
+    margin-left: 1vw;
+    justify-content: space-between;
+}
+
+.utilitarios .botoes1{
+    color: var(--cor-primaria);
+    margin-left: 1.8vw;
+    padding: 0.6vw 1vw 0.6vw 1vw;
+    border: none;
+    background-color: var(--cor-base-dois);
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.utilitarios .botoes1:hover{
+    background-color: var(--cor-base);
+}
+
+.utilitarios .botoes1.active{
+    background-color: var(--cor-base);
+}
+
+.utilitarios .botoes2 a{
+    all:unset;    
+    display: flex;
+    align-items: center;
+    padding:1.5vh 1vw;
+}
+.utilitarios .botoes2{
+    margin-left: 2vw;
+    border: none;
+    background-color: var(--cor-nove);
+    color: var(--cor-base);
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.utilitarios .botoes2:hover{
+    background-color:var(--cor-base);
+    color: var(--cor-seis);
+}
+
+.utilitarios svg{
+    margin-left: 1vw;
+}
+
+
+.corpo-baixo{
+    background-color: var(--cor-base);
+    height: 57vh;
+    border-radius: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.corpo-baixo::-webkit-scrollbar, #filtrar::-webkit-scrollbar {
+    background: transparent;
+    width: 1vw;
+}
+
+.corpo-baixo::-webkit-scrollbar-thumb, #filtrar::-webkit-scrollbar-thumb {
+    background: var(--cor-primaria);
+    border-radius: 1vw;
+}
+
+.corpo-baixo::-webkit-scrollbar-thumb:hover, #filtrar::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-primaria);
+}
+
+
+.lista-agendamentos table{
+    margin-left: 1.25vw;
+    margin-right: 1.25vw;
+}
+
+.lista-agendamentos tr{
+    display: flex;
+    text-align: center;
+    border-bottom: 0.1vw solid #CECECE;
+}
+
+.lista-agendamentos tr th{
+    font-family: "Baloo 2 Light";
+    font-size: 16px;
+    padding: 1.25vw 1.25vw 1vw 1.25vw;
+}
+
+th:first-child { width: 3vw; margin-right: 1.25vw;}
+th:first-child + th {  width: 15vw; margin-right: 1.25vw;}
+th:first-child + th + th {  width: 15vw; margin-right: 1.25vw; }
+th:first-child + th + th + th {  width: 20vw; margin-right: 0.1vw; }
+th:first-child + th + th + th + th {  width: 20vw; margin-right: 1.25vw; }
+
+
+.lista-agendamentos tr td{
+    font-family: "Open Sans Regular";
+    font-size: 12px;
+    padding: 0.8vw 1.25vw 0.8vw 1.25vw;
+}
+
+td:first-child { width: 3vw; margin-right: 1.25vw;}
+td:first-child + td {  width: 15vw; margin-right: 1.25vw; }
+td:first-child + td + td {  width: 15vw; margin-right: 1.25vw; }
+td:first-child + td + td + td {  width: 20vw; margin-right: 0.1vw; }
+td:first-child + td + td + td + td {  width: 20vw; margin-right: 1.25vw;}
+
+
+
+.buttons{
+    display: flex;
+}
+
+.buttons button{   
+    all:unset;
+    cursor: pointer;
+    display: flex;
+    width: 1.25vw;
+    margin-right: 0.5vw;
+}
+
+/* Filtros e notificações */
+
+#filtrar{
+    background-color: var(--cor-base);
+    position: absolute;
+    top: 22vh;
+    left: 16vw;
+    width: 25vw;
+    height: 30vh;
+    min-height: 30vh;
+    padding: 1vw;
+    border-radius: 1vw;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    z-index: 1000;
+    overflow: auto;
+}
+
+#filtrar .bloco{
+    display: flex;
+    align-items: center;
+}
+
+#filtrar .filtragem{
+    display: flex;
+    flex-direction: column;
+}
+
+#filtrar p, #filtrar label {
+    font-family: 'Open Sans Regular';
+    font-size: 14px;
+    margin-bottom: 2vh;
+    margin-right: 1vw;
+    width: 10vw;
+    color: var(--cor-primaria);
+}
+
+#filtrar .btn-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1vw
+}
+
+
+#filtrar input, #filtrar select{
+    color: var(--cor-primaria);
+    padding:0.5vw;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.3vw;
+    font-size: 14px;
+    font-family:"Open Sans Light" ;
+    margin-bottom: 1vw;
+    width: 100%;
+    min-width: 10vw;
+}
+
+
+#filtrar button {
+    padding: 0.9vw 1.5vw;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#filtrar .btn-back, #filtrar .btn-filtra{
+    background-color: var(--cor-dois);
+    color: white;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    font-family: "Baloo 2 Semibold";
+}
+
+#filtrar .btn-back:hover, #filtrar .btn-filtra:hover{
+    background-color: var(--cor-tres);
+    color: var(--cor-base);
+}
+
+#gerenciar .btn-cancela {
+    background-color: var(--cor-quatro);
+    color: white;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    font-size: 1.3vw;
+    font-family: "Baloo 2 Semibold";
+}
+
+.notificacao {
+    position: fixed;
+    left: 80vw;
+    top:15vh;
+    margin-right: 0;
+    background-color: var(--cor-base);
+    color: var(--cor-primaria);
+    padding: 2vw;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    font-size: 1.3vw;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.notificacao.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 1280px){
+    .corpo p{
+        font-size: 1.1vw;
+    }
+}
+
+@media (max-width: 1024px) {
+   .utilitarios .botoes1{
+        font-size: 12px;
+    }
+    .utilitarios .botoes2{
+        font-size: 12px;
+    }
+    .lista-agendamentos tr th{
+        font-size: 10px;
+    }
+    .lista-agendamentos tr td{
+        font-size: 9px;
+    } 
+}
+
+@media (max-width: 768px) {
+    .utilitarios .botoes1{
+        font-size: 1.9vw;
+    }
+    .utilitarios .botoes2{
+        font-size: 1.9vw;
+    }
+    .lista-agendamentos tr th{
+        font-size: 1.9vw;
+    }
+    .lista-agendamentos tr td{
+        font-size: 1.5vw;
+    }
+    .utilitarios svg,.buttons button svg {
+        width: 3vw;
+        height: 3vw;
+    }
+    #filtrar input, #filtrar select, #filtrar .btn-back, #filtrar .btn-filtra, #filtrar p, #filtrar label{
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .utilitarios .botoes1{
+        font-size: 2vw;
+    }
+    .utilitarios .botoes2{
+        font-size: 2vw;
+    }
+    .lista-agendamentos tr th{
+        font-size: 2vw;
+    }
+    .lista-agendamentos tr td{
+        font-size: 1.5vw;
+    }
+    .utilitarios svg {
+        width: 3vw;
+        height: 3vw;
+    }
+
+}

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profplan</title>
+    <link rel="stylesheet" type="text/css" href="../shared/cores.css">
+    <link rel="stylesheet" type="text/css" href="./style_calendario.css"/>
+    <link rel="stylesheet" type="text/css" href="../shared/padrao.css"/>
+    <script src="../shared/header.js"></script>
+    <script src="./header_config.js"></script>
+</head>
+<body>
+    <div id="notificacao" class="notificacao oculto"></div>
+    <div class="corpo">
+        <div class="lateral">
+            <div class="calendario-mensal">
+                <h1>Período <img id="infoicon-um" src="../img/Info-blue.svg"></h1>
+                <div id="info-um" class="info" hidden>
+                    <h2>Navegue pelas semanas, meses e anos com os filtros abaixo, alternando as semanas no canto superior direito do calendário semanal ou por meio do calendário mensal.</h2>
+                </div>
+                <div id="controle-mensal">
+                    <div class="junto">
+                        <h2>Mês</h2>
+                        <div class="bloco">
+                            <select id="mesSelect">
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div >
+                        <h2>Ano</h2>
+                        <div class="bloco">
+                            <select id="anoSelect"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="filtros">
+                <h1>Filtros <img id="infoicon-dois" src="../img/Info-blue.svg"></h1>
+                <div id="info-dois" class="info" hidden>
+                    <h2>Escolha entre técnicos, turmas ou áreas para personalizar sua visualização. A aba mensal é liberada com essa filtragem.</h2>
+                </div>
+                <div class="filtragem">
+                    <section class="checklist">
+                        <div class="select-tecnico">
+                            <label for="tecnicoEnsino">Técnico de ensino</label>
+                            <select id="tecnicoEnsino" name="tecnicoEnsino"> 
+                                <option value="selecione">Selecione</option>                               
+                            </select>
+                        </div>    
+                    </section>
+                    <section class="checklist">
+                        <div class="select-turma">
+                            <label for="turma">Turma</label>
+                            <select id="turma" name="turma">   
+                                <option value="selecione">Selecione</option>                                 
+                            </select>
+                        </div>    
+                    </section>
+                    <section class="checklist">
+                        <div class="select-area">
+                            <label for="area">Área</label>
+                            <select id="area" name="area">  
+                                <option value="selecione">Selecione</option> 
+                                <option value="Alimentos">Alimentos</option>  
+                                <option value="Apoio Educação">Apoio Educação</option>       
+                                <option value="Automotiva">Automotiva</option>                                                      
+                                <option value="Construção Civil">Construção Civil</option>
+                                <option value="Eletroeletrônica">Eletroeletrônica</option>
+                                <option value="Gestão">Gestão</option>
+                                <option value="Madeira e Mobiliária">Madeira e Mobiliária</option>
+                                <option value="Metalmecânica">Metalmecânica</option>
+                                <option value="Segurança do Trabalho">Segurança do Trabalho</option>
+                                <option value="Tecnologia da Informação">Tecnologia da Informação</option>
+                                <option value="Vestuário">Vestuário</option>                                 
+                            </select>
+                        </div>    
+                    </section>
+                    <div class="juntar">
+                        <button id="limpar">Limpar filtros</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dot-spinner">
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+        </div>
+        <div class="corpo-frame">
+            <section id="visual">
+                <div class="grupo">
+                    <button class="botoes" id="visual-mensal" >Mensal</button>
+                    <button class="botoes" id="visual-semanal" >Semanal</button>
+                </div>
+                <h2 id="title-mes"></h2>
+                <div id="controle-semanal">
+                    <button title="Anterior" type="button" class="botoes-arrow" id="prevWeek"><img src="../img/arrown-left-white.png" width="35vw"></button>
+                    <h2 id="weekLabel"></h2>
+                    <button title="Próxima" type="button" class="botoes-arrow" id="nextWeek"><img src="../img/arrow-right-white.png" width="35vw"></button>
+                </div>
+            </section>
+            <section id="acoes">
+                <button title="Baixar CSV" class="botoes" id="csv" onclick="escolhaCSV()">Exportar CSV</button>
+                <button title="Baixar PDF" class="botoes" id="pdf" onclick="exportarPDF()">Exportar PDF</button>
+            </section>
+            <section id="semanal">
+                <section id="calendar">
+                    <div id="dayline">
+                        <div id="horarios"  class="cabecalho-dayline" style="display: none;">Horário</div>
+                        <div class="semana-display">
+                            <div id="segunda" class="cabecalho-dayline">Segunda</div>
+                            <div id="terca" class="cabecalho-dayline">Terça</div>
+                            <div id="quarta" class="cabecalho-dayline">Quarta</div>
+                            <div id="quinta" class="cabecalho-dayline">Quinta</div>
+                            <div id="sexta" class="cabecalho-dayline">Sexta</div>
+                        </div>
+                    </div>
+                    <div id="geral">
+                        <div id="um" class="segunda day"></div>
+                        <div id="dois" class="terca day"></div>
+                        <div id="tres" class="quarta day"></div>
+                        <div id="quatro" class="quinta day"></div>
+                        <div id="cinco" class="sexta day"></div>
+                    </div>
+                    <div id="turmaFiltro" style="display: none;">
+                        <div class="hora">
+                            <div h="7" class="square">07h00</div>
+                            <div h="8" class="square">08h00</div>
+                            <div h="9" class="square">09h00</div>
+                            <div h="10" class="square">10h00</div>
+                            <div h="11" class="square">11h00</div>
+                            <div h="12" class="square">12h00</div>
+                            <div h="13" class="square">13h00</div>
+                            <div h="14" class="square">14h00</div>
+                            <div h="15" class="square">15h00</div>
+                            <div h="16" class="square">16h00</div>
+                            <div h="17" class="square">17h00</div>
+                            <div h="18" class="square">18h00</div>
+                            <div h="19" class="square">19h00</div>
+                            <div h="20" class="square">20h00</div>
+                            <div h="21" class="square">21h00</div>
+                            <div h="22" class="square">22h00</div>
+                            <div h="23" class="square">23h00</div>
+                        </div>
+                        <div id="turma-um" class="segunda day"></div>
+                        <div id="turma-dois" class="terca day"></div>
+                        <div id="turma-tres" class="quarta day"></div>
+                        <div id="turma-quatro" class="quinta day"></div>
+                        <div id="turma-cinco" class="sexta day"></div>
+                    </div>
+                    <div id="tecnicoFiltro" style="display: none;">
+                        <div class="hora">
+                            <div h="7" class="square">07h00</div>
+                            <div h="8" class="square">08h00</div>
+                            <div h="9" class="square">09h00</div>
+                            <div h="10" class="square">10h00</div>
+                            <div h="11" class="square">11h00</div>
+                            <div h="12" class="square">12h00</div>
+                            <div h="13" class="square">13h00</div>
+                            <div h="14" class="square">14h00</div>
+                            <div h="15" class="square">15h00</div>
+                            <div h="16" class="square">16h00</div>
+                            <div h="17" class="square">17h00</div>
+                            <div h="18" class="square">18h00</div>
+                            <div h="19" class="square">19h00</div>
+                            <div h="20" class="square">20h00</div>
+                            <div h="21" class="square">21h00</div>
+                            <div h="22" class="square">22h00</div>
+                            <div h="23" class="square">23h00</div>
+                        </div>
+                        <div id="tecnico-um" class="segunda day"></div>
+                        <div id="tecnico-dois" class="terca day"></div>
+                        <div id="tecnico-tres" class="quarta day"></div>
+                        <div id="tecnico-quatro" class="quinta day"></div>
+                        <div id="tecnico-cinco" class="sexta day"></div>
+                    </div>
+                </section>
+            </section>
+            <section id="vis-mensal">
+                <div class="bloco-geral">
+                    <table id="vis-mes-geral">
+                        <thead class="vis-dayline-mes">
+                            <tr class="vis-date-day-mes">
+                                <th id="vis-segunda-mes">Segunda</th>
+                                <th id="vis-terça-mes">Terça</th>
+                                <th id="vis-quarta-mes">Quarta</th>
+                                <th id="vis-quinta-mes">Quinta</th>
+                                <th id="vis-sexta-mes">Sexta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="vis-semana-um">
+                                <td class="segunda-mes"></td>
+                                <td class="terca-mes"></td>
+                                <td class="quarta-mes"></td>
+                                <td class="quinta-mes"></td>
+                                <td class="sexta-mes"></td>
+                            </tr>
+                            <tr id="vis-semana-dois">
+                                <td class="segunda-mes"></td>
+                                <td class="terca-mes"></td>
+                                <td class="quarta-mes"></td>
+                                <td class="quinta-mes"></td>
+                                <td class="sexta-mes"></td>
+                            </tr>
+                            <tr id="vis-semana-tres">
+                                <td class="segunda-mes"></td>
+                                <td class="terca-mes"></td>
+                                <td class="quarta-mes"></td>
+                                <td class="quinta-mes"></td>
+                                <td class="sexta-mes"></td>
+                            </tr>
+                            <tr id="vis-semana-quatro">
+                                <td class="segunda-mes"></td>
+                                <td class="terca-mes"></td>
+                                <td class="quarta-mes"></td>
+                                <td class="quinta-mes"></td>
+                                <td class="sexta-mes"></td>
+                            </tr>
+                            <tr id="vis-semana-cinco">
+                                <td class="segunda-mes"></td>
+                                <td class="terca-mes"></td>
+                                <td class="quarta-mes"></td>
+                                <td class="quinta-mes"></td>
+                                <td class="sexta-mes"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="legenda-geral"></div>
+                </div>
+                <div class="bloco-periodos">
+                    <div class="tabelas">
+                        <table id="vis-mes-manha">
+                            <thead class="vis-dayline-mes">
+                                <tr><th colspan="5">MANHÃ</th></tr>
+                                <tr class="vis-date-day-mes">
+                                    <th>Segunda</th>
+                                    <th>Terça</th>
+                                    <th>Quarta</th>
+                                    <th>Quinta</th>
+                                    <th>Sexta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="vis-semana-manha-um">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-manha-dois">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-manha-tres">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-manha-quatro">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-manha-cinco">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="vis-mes-tarde" class="vis-mensal-tecnico">
+                            <thead class="vis-dayline-mes">
+                                <tr><th colspan="5">TARDE</th></tr>
+                                <tr class="vis-date-day-mes">
+                                    <th>Segunda</th>
+                                    <th>Terça</th>
+                                    <th>Quarta</th>
+                                    <th>Quinta</th>
+                                    <th>Sexta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="vis-semana-tarde-um">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-tarde-dois">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-tarde-tres">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-tarde-quatro">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-tarde-cinco">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="vis-mes-noite" class="vis-mensal-tecnico">
+                            <thead class="vis-dayline-mes">
+                                <tr><th colspan="5">NOITE</th></tr>
+                                <tr class="vis-date-day-mes">
+                                    <th>Segunda</th>
+                                    <th>Terça</th>
+                                    <th>Quarta</th>
+                                    <th>Quinta</th>
+                                    <th>Sexta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="vis-semana-noite-um">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-noite-dois">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-noite-tres">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-noite-quatro">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                                <tr id="vis-semana-noite-cinco">
+                                    <td class="segunda-mes"></td>
+                                    <td class="terca-mes"></td>
+                                    <td class="quarta-mes"></td>
+                                    <td class="quinta-mes"></td>
+                                    <td class="sexta-mes"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="legenda-periodos"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="escolhaCSV">
+        <button class="btn-semanal" onclick="exportarCSV('calendarioSemanal')">Semana</button>
+        <button class="btn-mensal" onclick="exportarCSV('calendarioMensal')">Mês</button>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('erro') === 'acesso') {
+            alert('Você não tem permissão para acessar essa página.');
+        }
+    </script>
+    <script src="./script_calendario.js"></script>
+</body>
+</html>

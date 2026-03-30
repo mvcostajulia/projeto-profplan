@@ -1,0 +1,292 @@
+
+body {
+    margin: 10vh 5vw 10vh 5vw;
+    padding: 0;
+    font-family:"Open Sans Regular";
+    display: flex;
+    justify-content: center;
+    min-height: 80vh;
+    max-height: 80vh;
+    overflow: hidden;
+    background-color: var(--cor-base);
+    user-select: none;
+}
+
+.esquerda {
+    width: 50%;
+    background-color: var(--cor-base);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.cima{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8vh;
+}
+.esquerda h2 {
+    font-family: 'BauhausC';
+    font-size: 4.8vw;
+    color: var(--cor-primaria);
+    margin: 0;
+    padding-left: 2.5vw;
+}
+
+.esquerda .cima img {
+    width: 11vw;
+}
+.esquerda p {
+    font-size: 1.25vw;
+    color: #555;
+    line-height: 1.6;
+}
+
+.esquerda .baixo{
+    display: flex;
+   justify-content: flex-end;
+}
+
+.esquerda .baixo img{
+    width:15vw;
+}
+
+.direita {
+    width: 50%;
+    background-color:var(--cor-dois);
+    display: flex;
+    flex-direction: column;
+    justify-content:safe center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px var(--cor-shadow);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    margin: 3vw 5vw 3vw 5vw;
+}
+
+form h2 {
+    color: var(--cor-base);
+    margin:0;
+    font-family: "Baloo 2 Bold";
+    margin-bottom: 1.5vw;
+    text-align: center;
+    font-size: 2.5vw;
+}
+form p{
+    color: var(--cor-base);
+    font-size: 0.9vw;
+    font-family:"Open Sans Light" ;
+    margin-top: 0.5vw;
+    margin-bottom: 1.5vw;
+
+}
+
+label {
+    font-size: 1.3vw;
+    color: var(--cor-base);
+    margin-bottom: 0.6vw;
+    font-family: "Baloo 2 Semibold";
+}
+
+input {
+    padding:1vw;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.3vw;
+    font-size: 1.1vw;
+    font-family:"Open Sans Light" ;
+}
+
+button {
+    width: 9vw;
+    padding: 1vw;
+    border: none;
+    border-radius: 0.4vw;
+    background-color: var(--cor-base);
+    color: var(--cor-primaria);
+    font-size: 1.3vw;
+    font-family: "Baloo 2 Semibold";
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 2vw;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+button svg {
+    margin-left: 1vw;
+}
+
+button:hover {
+    background-color: var(--cor-tres);
+    color: var(--cor-base);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--cor-shadow);
+    
+}
+
+button:focus {
+    outline: none;
+    background-color: #d29c90;
+
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .esquerda, .direita {
+        width: 100%;
+        height: 80vh;
+    }
+
+    .esquerda h2 {
+        font-size: 6vw;
+    }
+
+    .esquerda .cima img {
+        width: 15vw;
+    }
+
+    .esquerda p {
+        font-size: 2vw;
+    }
+
+    form {
+        margin: 3vw;
+    }
+
+    form h2 {
+        font-size: 4vw;
+    }
+
+    form p {
+        font-size: 1.5vw;
+        margin-bottom: 4vw;
+    }
+
+    label {
+        font-size: 2vw;
+    }
+
+    input {
+        font-size: 1.5vw;
+        padding: 1.5vw;
+    }
+
+    button {
+        width: 12vw;
+        font-size: 1.8vw;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: 80vh;
+        margin: 30vw 5vw 30vw 5vw;
+        overflow: scroll;
+    }
+
+    .esquerda h2 {
+        font-size: 7vw;
+    }
+
+    .esquerda .cima img {
+        width: 20vw;
+    }
+
+    .esquerda .baixo img{
+        width:25vw;
+    }
+
+    .esquerda p {
+        font-size: 3vw;
+    }
+
+    form h2 {
+        font-size: 5vw;
+    }
+
+    form p {
+        font-size: 2vw;
+    }
+
+    label {
+        font-size: 2.5vw;
+    }
+
+    input {
+        font-size: 2vw;
+    }
+
+    button {
+        width: 15vw;
+        font-size: 2.2vw;
+    }
+}
+@media (max-width: 500px) {
+    body {
+        flex-direction: column;
+        margin: 30vw 5vw 30vw 5vw;
+        overflow: scroll;
+    }
+
+    .esquerda, .direita {
+        width: 100%;
+        height: 80vh;
+    }
+
+    .esquerda h2 {
+        font-size: 8vw;
+        text-align: center;
+    }
+
+    .esquerda .cima img {
+        width: 25vw;
+        margin: 0 auto;
+    }
+
+    .esquerda .baixo img{
+        width:25vw;
+    }
+
+    .esquerda p {
+        font-size: 4vw;
+    }
+
+    form {
+        margin: 4vw;
+    }
+
+    form h2 {
+        font-size: 6vw;
+        text-align: center;
+    }
+
+    form p {
+        font-size: 2.5vw;
+        text-align: justify;
+    }
+
+    label {
+        font-size: 3vw;
+    }
+
+    input {
+        font-size: 2.5vw;
+        padding: 2.5vw;
+    }
+
+    button {
+        width: 20vw;
+        font-size: 2.5vw;
+        padding: 2vw;
+    }
+}

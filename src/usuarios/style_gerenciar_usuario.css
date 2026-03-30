@@ -1,0 +1,384 @@
+body{
+    font-family: "Baloo 2 Semibold";
+    padding-top: 14vh;
+    margin: 0;
+    overflow: hidden;
+    color: var(--cor-primaria);
+}
+
+.notificacao {
+    position: fixed;
+    left: 80vw;
+    top:15vh;
+    margin-right: 0;
+    background-color: var(--cor-base);
+    color: var(--cor-primaria);
+    padding: 2vw;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    font-size:14px;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.notificacao.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.corpo{
+    background-color: var(--cor-base-dois);
+    font-family:"Open Sans Regular" ;
+    height: 86vh;
+    padding:1vh 3.14vw 1vh 3.14vw;
+    font-size: 12px;
+}
+
+.corpo p{
+    font-family: "Open Sans Regular";
+    font-size: 14px;
+}
+
+.corpo-frame .hidden {
+    display: none;
+}
+
+.corpo-frame{
+    background-color: var(--cor-base);
+    height: 55vh;
+    border-radius: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 6vh 6.3vw 6vh 6.3vw;
+}
+
+.corpo-frame::-webkit-scrollbar {
+    background: transparent;
+    width: 1vw;
+}
+
+.corpo-frame::-webkit-scrollbar-thumb {
+    background: var(--cor-primaria);
+    border-radius: 10px;
+}
+
+.corpo-frame::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-primaria);
+}
+
+
+.corpo-frame.naorola{
+    overflow-y: hidden;
+}
+
+.corpo-frame .avatares {
+    border-radius: 50%;
+    border-style: none;
+    width: 8vw;
+    height: 8vw;
+    padding: 0;
+    margin-bottom: 5vh;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.corpo-frame .avatares:hover img {
+    opacity: 0.3;
+}
+
+.corpo-frame .avatares:hover::after {
+    content: ''; 
+    background-image: url('../img/PlusCircle-blue.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3vw; 
+    height: 3vw; 
+    transform: translate(-50%, -50%); 
+}
+
+.corpo-frame .avatares.hover-active::after {
+    content: ''; 
+    background-image: url('../img/MinusCircle.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3vw; 
+    height: 3vw; 
+    transform: translate(-50%, -50%); 
+}
+
+
+.corpo-frame .escolha-avatar-div{
+    border-radius: 8px;
+    background-color: var(--cor-nove);
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 15vh;
+    left:20vw;
+    width: 78vw;
+    height: 80vh;
+}
+
+.corpo-frame .escolha-avatar-div button{
+    background-color: var(--cor-nove);
+    all:unset;  
+    cursor: pointer;
+}
+
+.corpo-frame .escolha-avatar-div button:active{
+    opacity: 0.7;
+}
+
+.corpo-frame .escolha-avatar-div img{
+    border-radius: 50%;
+    border-style: none;
+    width: 6vw;
+    height: 6vw;
+    padding: 0;
+    margin: 1vw;
+
+}
+
+.corpo-frame .textos{
+    display: flex;
+    flex-direction: column;
+}
+
+.corpo-frame .textos #nome{
+    width: 35vw;
+}
+
+.corpo-frame .textos #email{
+    width: 30vw;
+}
+
+.corpo-frame .textos #matricula{
+    width: 17vw;
+}
+
+.corpo-frame .checklist{
+    display: flex;
+    flex-direction: column;
+}
+
+.corpo-frame .checklist select{
+    margin-top: 0.5vw;
+    width: 23vw;
+}
+
+.corpo-frame .msg{
+    color: var(--cor-quatro);
+    font-weight: 300;
+    font-size: 10px;
+}
+
+
+.corpo-frame p{
+    font-size:14px;
+    color: var(--cor-primaria);
+    font-family: "Baloo 2 Semibold";
+}
+
+.corpo-frame label {
+    font-size:16px;
+    color: var(--cor-primaria);
+    margin-bottom: 0.5vw;
+    font-family: "Baloo 2 Semibold";
+}
+
+.corpo-frame input, .corpo-frame select {
+    padding:0.5vw;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.3vw;
+    font-size: 14px;
+    font-family:"Open Sans Light" ;
+    width: 20vw;
+}
+
+.corpo-frame input:focus{
+    outline: none;
+    background-color: var(--cor-base-dois);
+}
+
+.corpo-frame select:focus{
+    outline: none;
+}
+
+.corpo-frame .juntar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+.corpo-frame .juntar.senha{
+    display: flex;
+    justify-content:flex-start;
+    margin-bottom: 5vh;
+}
+
+.corpo-frame .senha input {
+    margin-right: 2vw;
+}
+
+.corpo-frame .botoes{
+    all:unset;    
+    display: flex;
+    align-items: center;
+    width: 10.5vw;
+    margin-top: 6vh;
+    justify-content: center; 
+    height: 6vh;
+    cursor: pointer;
+    padding:1.5vh 2vw;
+}
+
+.corpo-frame button a{
+    all:unset;    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+    padding:1.5vh 2vw;
+}
+
+.corpo-frame button a svg {
+    color: var(--cor-base);
+    margin-right: 1vw;
+}
+
+.corpo-frame #voltar{
+    padding: 0.6vw 1vw 0.6vw 1vw;
+    border: none;
+    background-color: var(--cor-dois);
+    color: var(--cor-base);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size:16px;
+    font-family: "Baloo 2 Semibold";
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    white-space: nowrap;
+    cursor: pointer;
+    width: 7vw;
+}
+
+.corpo-frame #voltar:hover{
+    background-color: var(--cor-tres);
+}
+
+.corpo-frame #excluir{
+    padding: 0.6vw 1vw 0.6vw 1vw;
+    margin-left: 40vw;
+    border: none;
+    background-color: var(--cor-quatro);
+    color: var(--cor-base);
+    display: flex;
+    align-items: center;
+    font-size:16px;
+    font-family: "Baloo 2 Semibold";
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.corpo-frame #excluir svg, .corpo-frame #salvar svg, .corpo-frame #editar svg{
+    margin-left: 1vw;
+}
+
+.corpo-frame #excluir:hover{
+    background-color: var(--cor-base);
+    color: var(--cor-cinco);   
+}
+
+.corpo-frame #salvar, .corpo-frame #editar{
+    padding: 0.6vw 1vw 0.6vw 1vw;
+    margin-left: 2vw;
+    border: none;
+    background-color: var(--cor-nove);
+    color: var(--cor-base);
+    display: flex;
+    align-items: center;
+    font-size:16px;
+    font-family: "Baloo 2 Semibold";
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.corpo-frame #salvar:hover, .corpo-frame #editar:hover{
+    background-color: var(--cor-base);
+    color: var(--cor-seis);
+}
+
+
+@media (max-width: 768px) {
+    .corpo-frame label, .corpo-frame .ausencias label, .corpo-frame .checklist select, .corpo-frame p, .corpo p, .corpo, .corpo-frame input, .corpo-frame select {    
+        font-size: 2vw;
+        font-size: 1.5vw;
+    }
+    .corpo-frame #voltar {
+        font-size: 1.5vw;
+        width: 12vw;
+    }
+    .corpo-frame #salvar, .corpo-frame #editar{
+        font-size: 1vw;
+        width: 18vw;
+    }
+    .corpo-frame #excluir  {
+        font-size: 1vw;
+        width: 18vw;
+        margin-left: 15vw;
+    }
+    svg{
+        width: 2vw;
+    }
+    .corpo-frame h2{
+        font-size: 9px;
+        margin: 4vw 1vw 0vw 1vw;
+    }
+    .botoes img{
+        width: 2vw;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .corpo-frame label, .corpo-frame .ausencias label, .corpo-frame .checklist select, .corpo-frame p, .corpo p, .corpo, .corpo-frame input, .corpo-frame select {    
+        font-size: 2vw;
+    }
+    .corpo-frame #voltar {
+        font-size: 1.5vw;
+        width: 14vw;
+    }
+    .corpo-frame #salvar, .corpo-frame #editar{
+        font-size: 1.5vw;
+        width: 22vw;
+    }
+    .corpo-frame #excluir  {
+        font-size: 1.5vw;
+        width: 22vw;
+        margin-left: 5vw;
+    }
+    svg{
+        width: 2vw;
+    }
+    .corpo-frame h2{
+        font-size: 1vw;
+        margin: 5vw 1vw 0vw 1vw;
+    }
+    .botoes img{
+        width: 1vw;
+    }
+
+}
+

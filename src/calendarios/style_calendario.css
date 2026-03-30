@@ -1,0 +1,1117 @@
+body{
+    font-family: "Baloo 2 Semibold";
+    padding-top: 14vh;
+    margin: 0;
+    overflow: hidden;
+    user-select: none;
+    color: var(--cor-primaria);
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.notificacao {
+    position: fixed;
+    left: 80vw;
+    top:15vh;
+    margin-right: 0;
+    background-color: var(--cor-base);
+    color: var(--cor-primaria);
+    padding: 2vw;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    font-size: 16px;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.notificacao.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.corpo{
+    background-color: var(--cor-primaria);
+    font-family:"Open Sans Regular" ;
+    height: 86vh;
+    display: flex;
+    font-size: 14px;
+}
+
+.corpo p{
+    font-family: "Open Sans Regular";
+    font-size: 14px;
+}
+
+.corpo .lateral{
+    height: 100%;
+    width: 30vw;
+}
+
+.corpo-frame{
+    background-color: var(--cor-primaria);
+    height: 95%;
+    width: 70vw;
+    padding: 3vh 2vw 3vh 2vw;
+    display: none;
+}
+
+.corpo-frame::-webkit-scrollbar, .corpo-frame #geral::-webkit-scrollbar, .corpo-frame #tecnicoFiltro::-webkit-scrollbar, .corpo-frame #turmaFiltro::-webkit-scrollbar, .corpo-frame #vis-mensal #legenda-periodos::-webkit-scrollbar {
+    background: var(--cor-primaria);
+    width: 0.6vw;
+}
+
+.corpo-frame::-webkit-scrollbar-thumb, .corpo-frame #geral::-webkit-scrollbar-thumb, .corpo-frame #tecnicoFiltro::-webkit-scrollbar-thumb, .corpo-frame #turmaFiltro::-webkit-scrollbar-thumb, .corpo-frame #vis-mensal #legenda-periodos::-webkit-scrollbar-thumb {
+    background: var(--cor-limite);
+    border-radius: 10px;
+}
+
+.corpo-frame::-webkit-scrollbar-thumb:hover, .corpo-frame #geral::-webkit-scrollbar-thumb:hover, .corpo-frame #tecnicoFiltro::-webkit-scrollbar-thumb:hover, .corpo-frame #turmaFiltro::-webkit-scrollbar-thumb:hover,.corpo-frame #vis-mensal #legenda-periodos::-webkit-scrollbar-thumb:hover {
+    background:var(--cor-cinco);
+}
+
+
+.corpo .textos{
+    display: flex;
+    flex-direction: column;
+}
+
+.corpo p{
+    font-size: 16px;
+    color: var(--cor-primaria);
+    font-family: "Baloo 2 Semibold";
+}
+
+.corpo h2{
+    font-family: "Open Sans Light";
+    font-size: 12px;
+    color: var(--cor-primaria);
+    margin-right: 2vw;
+    margin-left: 2vw;
+}
+
+.corpo input:focus{
+    outline: none;
+    background-color: var(--cor-base-dois);
+}
+
+.corpo select:focus{
+    outline: none;
+}
+
+.corpo .juntar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+.corpo .juntar.calen{
+    display: flex;
+    justify-content:left;
+    margin-bottom: 1vh;
+}
+
+.corpo .datas{
+    display: flex;
+    flex-direction: column;
+}
+
+.corpo #data_fim, .corpo #data_inicio{
+    width: 15vw;
+}
+
+.corpo .botoes{
+    all:unset;    
+    display: flex;
+    align-items: center;
+    width: 15vw;
+    justify-content: center; 
+    cursor: pointer;
+    padding:1.5vh 2vw;
+}
+
+.corpo .botoes-calendar{
+    padding: 0.6vw 1vw 0.6vw 1vw;
+    border: none;
+    background-color: var(--cor-base);
+    color:var(--cor-primaria);
+    display: flex;
+    font-size: 14px;
+    font-family: "Baloo 2 Semibold";
+    border-radius: 4px;
+    white-space: nowrap;
+    cursor: pointer;
+    width: 5vw;
+    height: 4vh;
+    margin-right: 2vw;
+}
+
+.corpo .botoes-calendar.picked{
+    background-color:var(--cor-primaria);
+    color: var(--cor-base);
+}
+
+.corpo-frame .botoes-calendar:hover{
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+}
+
+/* CALENDÁRIO SEMANAL */
+
+.corpo-frame button a{
+    all:unset;    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+    padding:1.5vh 2vw;
+}
+
+.corpo-frame button a svg {
+    color: var(--cor-base);
+    margin-right: 1vw;
+}
+
+.corpo-frame #semanal, .corpo-frame #mensal{
+    display: flex;
+}
+
+.corpo-frame #controle-semanal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.corpo-frame #calendar #dayline{
+    display: flex;
+    overflow-y: hidden;
+    position: absolute;
+    bottom: 1vw;
+    top: 32vh;
+    right: 1vw;
+    left: 29vw;
+    width: 69.45vw;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+}
+
+.corpo-frame #calendar #dayline .semana-display{
+    display: flex;
+    width: 64.4vw;
+    flex: 1;
+}
+
+
+.corpo-frame #calendar #dayline .cabecalho-dayline{
+    font-family: "Baloo 2 Semibold";
+    text-align: center;
+    color:var(--cor-primaria);
+    background-color: var(--cor-base);
+    padding: 0.5vw 3vw 0vw 3vw;
+    width: 100%;
+    height: 10vh;
+    user-select: none;
+    border: 0.1vw solid #e9e9e9;
+}
+
+.corpo-frame #calendar #dayline .cabecalho-dayline#horarios{
+    width: 5vw;
+    padding: 0.5vw 0 0 0 ;
+    justify-content: center;
+    align-items: center;
+    border: 0.1vw solid #e9e9e9;
+}
+
+.corpo-frame #calendar #dayline span{
+    font-family: "Open Sans";
+    font-size: 12px;
+    color: var(--cor-base);
+    background-color: var(--cor-nove);
+    padding: 0.1vw 0.4vw 0.1vw 0.4vw;
+    border-radius: 0.5vw;
+}
+
+.corpo-frame #calendar #geral {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    align-items: stretch;
+    gap: 0;
+    position: absolute;
+    bottom: 1vw;
+    top: 42vh;
+    right: 1vw;
+    left: 29vw;
+    width: 70vw;
+    z-index: 9;
+    background-color: var(--cor-base);
+    overflow-y: auto; 
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+}
+
+.corpo-frame #calendar #tecnicoFiltro, .corpo-frame #calendar #turmaFiltro {
+    display: grid;
+    grid-template-columns: 5.1vw repeat(5, 1fr); 
+    align-items: stretch;
+    gap: 0;
+    position: absolute;
+    bottom: 1vw;
+    top: 42vh;
+    right: 1vw;
+    left: 29vw;
+    width: 70vw;
+    z-index: 9;
+    background-color: var(--cor-base);
+    overflow-y: auto; 
+    border-bottom-right-radius:  1vw;
+    border-bottom-left-radius:  1vw;
+
+}
+
+.corpo-frame #calendar #geral #um,
+.corpo-frame #calendar #geral #dois,
+.corpo-frame #calendar #geral #tres,
+.corpo-frame #calendar #geral #quatro,
+.corpo-frame #calendar #geral #cinco {
+    border: 0.1vw solid #e9e9e9;
+    display: flex;            
+    flex-direction: column; 
+}
+
+.corpo-frame #calendar #tecnicoFiltro #tecnico-um,
+.corpo-frame #calendar #tecnicoFiltro #tecnico-dois,
+.corpo-frame #calendar #tecnicoFiltro #tecnico-tres,
+.corpo-frame #calendar #tecnicoFiltro #tecnico-quatro,
+.corpo-frame #calendar #tecnicoFiltro #tecnico-cinco,
+.corpo-frame #calendar #turmaFiltro #turma-um,
+.corpo-frame #calendar #turmaFiltro #turma-dois,
+.corpo-frame #calendar #turmaFiltro #turma-tres,
+.corpo-frame #calendar #turmaFiltro #turma-quatro,
+.corpo-frame #calendar #turmaFiltro #turma-cinco{
+    border: 0.1vw solid #e9e9e9;
+    display: flex;            
+    flex-direction: column; 
+}
+
+.corpo-frame #calendar #tecnicoFiltro .ferias{
+    font-weight: 600;
+  text-align: center;
+  font-size: 12px;
+  pointer-events: none;
+  background-color:var(--cor-ferias);
+  color: var(--cor-base);
+}
+
+.sem-scroll {
+    width: 69.5vw !important; 
+}
+
+.corpo-frame #calendar div.square {
+    width: 85%;
+    height: 10vh;
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
+    border-radius: 0;
+    color: var(--cor-base);
+    padding: 0.5vw;
+    font-size: 12px;
+    z-index: 1;
+    border-bottom: 0.1vw solid #e9e9e9;
+}
+
+.corpo-frame #calendar #tecnicoFiltro div.hora {
+    width: 5vw;
+    grid-column: 1; 
+    gap: 0;
+    display: grid;
+}
+
+.corpo-frame #calendar  #tecnicoFiltro div.hora div{
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    display: flex;            
+    flex-direction: column; 
+    color: var(--cor-primaria);
+    justify-content: center;
+    padding: 0.5vw 0 0.5vw 0;
+    margin: 0;
+    width: 100%;
+}
+
+.corpo-frame #calendar #turmaFiltro div.hora {
+    width: 5vw;
+    grid-column: 1; 
+    gap: 0;
+    display: grid;
+}
+
+.corpo-frame #calendar  #turmaFiltro div.hora div{
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    display: flex;            
+    flex-direction: column; 
+    color: var(--cor-primaria);
+    justify-content: center;
+    padding: 0.5vw 0 0.5vw 0;
+    margin: 0;
+    width: 100%;
+}
+
+
+.corpo-frame #calendar div.square.um {
+    background-color: var(--cor-nove);
+    height: auto;
+}
+
+.corpo-frame #calendar div.square.dois {
+    background-color: var(--cor-treze);
+    height: auto;
+}
+
+.corpo-frame #calendar div.square.tres {
+    background-color: var(--cor-sete);
+    height: auto;
+}
+
+.corpo-frame #calendar div.square.quatro {
+    background-color: var(--cor-quatorze);
+    height: auto;
+}
+
+.corpo-frame #calendar div.square.cinco {
+    background-color: var(--cor-oito);
+    height: auto;
+}
+
+.corpo-frame #calendar div.square.seis {
+    background-color: var(--cor-doze);
+    height: auto;
+}
+
+.corpo-frame #calendar div.square.um[h]{
+    margin-bottom: 0;
+    margin-top: 0;
+    border-radius: 0;
+    height: 10vh;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.corpo-frame #calendar div.square.quatro[h], .corpo-frame #calendar div.square.seis[h]{
+    margin-bottom: 0;
+    margin-top: 0;
+    border-radius: 0;
+    height: 10vh;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+}
+
+.corpo-frame #acoes{
+    display: flex;
+    justify-content: right;
+}
+
+.corpo-frame #acoes #info-horas-tec{
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.corpo-frame #acoes #info-horas-tec p{
+    color: var(--cor-base);
+    margin: 0;
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+
+.corpo-frame #visual{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.corpo-frame #visual h2{
+    color:var(--cor-base);
+    font-family: "Baloo 2 Semibold";
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.corpo-frame #visual #weekLabel{
+    color: var(--cor-base);
+    font-size: 14px;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+}
+
+.corpo-frame #visual .grupo {
+    display: flex;
+}
+
+.corpo-frame .botoes{
+    padding: 0.6vw 0.3vw 0.6vw 0.3vw;
+    width: 10vw;
+    border: none;
+    background-color: var(--cor-primaria);
+    display: flex;
+    align-items: center;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    color: var(--cor-base);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.corpo-frame .botoes:hover{
+    background-color: var(--cor-base);
+    color: var(--cor-primaria);
+}
+
+.corpo-frame .botoes.active{
+    background-color: var(--cor-base);
+    color: var(--cor-primaria);
+}
+
+
+/* CALENDÁRIO MENSAL */
+
+.corpo-frame .bloco-geral{
+    display: flex;
+    justify-content: left;
+}
+
+.corpo-frame .bloco-periodos{
+    display: flex;
+    flex-direction: column;
+}
+
+.corpo-frame .bloco-periodos .tabelas{
+    display: flex;
+}
+
+.corpo-frame #vis-mensal{
+    display: flex;
+    justify-content: left;
+}
+
+.corpo-frame #vis-mensal table{
+    border-spacing: 0;
+    margin-right: 1vw;
+    height: 40vh;
+}
+
+.corpo-frame #vis-mensal table thead tr:nth-child(1) th:first-child {
+  border-top-left-radius: 0.8vw;
+}
+
+.corpo-frame #vis-mensal table thead tr:nth-child(1) th:last-child {
+  border-top-right-radius: 0.8vw;
+}
+
+.corpo-frame #vis-mensal table tr:last-child td:first-child {
+  border-bottom-left-radius: 0.8vw;
+}
+
+.corpo-frame #vis-mensal table tr:last-child td:last-child {
+  border-bottom-right-radius: 0.8vw;
+}
+
+.corpo-frame #vis-mensal th {
+    font-family: "Baloo 2 Semibold";
+    text-align: center;
+    color: var(--cor-primaria);
+    background-color: var(--cor-base);
+    user-select: none;
+    font-size: 14px;
+    width: 5vw;
+    height: 6vh;
+    box-sizing: border-box;
+    padding: 0; 
+    border: 0.1vw solid #e9e9e9;
+}
+
+.corpo-frame #vis-mensal td {
+    font-family: "Open Sans";
+    font-weight: 700;
+    font-size: 12px;
+    text-align:center;
+
+    color: var(--cor-primaria);
+    user-select: none;
+    background-color: var(--cor-base);
+    width: 5vw;
+    height: 6vh;
+    box-sizing: border-box;
+    padding: 0.5vw;   
+    border: 1px solid #e9e9e9;
+}
+
+.corpo-frame #vis-mensal #legenda-geral{
+    margin:1vw;
+    height: 60vh;
+    overflow-y: auto;
+}
+
+.corpo-frame #vis-mensal #legenda-periodos{
+    margin:1vw;
+    height: 20vh;
+    overflow-y: auto;
+}
+
+.corpo-frame #vis-mensal .legenda{
+    width: 3vw !important; 
+    height: 3vw !important;
+    flex-shrink: 0;
+}
+
+.corpo-frame #vis-mensal td.um, .corpo-frame #vis-mensal .legenda.um {
+    background-color: var(--cor-dez) !important; 
+}
+
+.corpo-frame #vis-mensal td.dois, .corpo-frame #vis-mensal .legenda.dois {
+    background-color: var(--cor-quatro) !important; 
+}
+
+.corpo-frame #vis-mensal td.tres, .corpo-frame #vis-mensal .legenda.tres {
+    background-color: var(--cor-seis) !important; 
+}
+
+.corpo-frame #vis-mensal td.quatro, .corpo-frame #vis-mensal .legenda.quatro {
+    background-color: var(--cor-treze) !important; 
+}
+
+.corpo-frame #vis-mensal td.cinco, .corpo-frame #vis-mensal .legenda.cinco {
+    background-color: var(--cor-nove) !important; 
+}
+
+.corpo-frame #vis-mensal td.seis, .corpo-frame #vis-mensal .legenda.seis {
+    background-color: var(--cor-dezesseis) !important; 
+}
+
+.corpo-frame #vis-mensal td.sete, .corpo-frame #vis-mensal .legenda.sete {
+    background-color: var(--cor-quatorze) !important; 
+}
+
+.corpo-frame #vis-mensal td.oito, .corpo-frame #vis-mensal .legenda.oito {
+    background-color: var(--cor-oito) !important; 
+}
+
+.corpo-frame #vis-mensal td.nove, .corpo-frame #vis-mensal .legenda.nove {
+    background-color: var(--cor-onze) !important; 
+}
+
+.corpo-frame #vis-mensal td.dez, .corpo-frame #vis-mensal .legenda.dez {
+    background-color: var(--cor-dezessete) !important; 
+}
+
+.corpo-frame #vis-mensal #legenda-geral .item{
+    color: var(--cor-base);
+    font-size: 14px;
+    display: flex;
+    gap: 6px;
+    width: 30vw;
+    align-items: center;
+    margin-bottom: 0.1vw;
+    border-bottom:0.1vw solid var(--cor-limite);
+}
+
+.corpo-frame #vis-mensal #legenda-periodos .item{
+    color: var(--cor-base);
+    font-size: 14px;
+    display: flex;
+    gap: 6px;
+    width: 60vw;
+    align-items: center;
+    border-bottom:0.1vw solid var(--cor-limite);
+}
+
+.corpo-frame #vis-mensal .item span{
+    margin-left: 1vw;
+}
+
+.corpo-frame .botoes-arrow{
+    padding: 0;
+    border: none;
+    background-color: var(--cor-primaria);
+    color:var(--cor-base);
+    display: flex;
+    font-family: "Baloo 2 Semibold";
+    border-radius: 4px;
+    white-space: nowrap;
+    cursor: pointer;
+    width: auto;
+}
+
+#escolhaCSV{
+    background-color: var(--cor-base);
+    position: absolute;
+    top: 32vh;
+    left: 88vw;
+    height: 15vh;
+    width: 11vw;
+    padding: 0.5vw;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+}
+
+#escolhaCSV.showEscolha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#escolhaCSV button{
+    padding: 5px 20px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#escolhaCSV .btn-semanal,#escolhaCSV .btn-mensal{
+    background-color: var(--cor-base);
+    color: var(--cor-primaria);
+    font-size: 16px;
+    font-family: "Baloo 2 Semibold";
+}
+
+#escolhaCSV .btn-semanal:hover,#escolhaCSV .btn-mensal:hover{
+    background-color: var(--cor-primaria);
+    color: var(--cor-base);
+}
+
+.abertoCSV{
+    background-color: var(--cor-base) !important;
+    color: var(--cor-primaria) !important;
+}
+
+/* LATERAL */
+
+.lateral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lateral .calendario-mensal{
+    height: 25%;
+    background-color: var(--cor-base);
+    border-radius: 1vw;
+    width: 22vw;
+    margin-top: 1vw;
+}
+
+.lateral .filtros{
+    background-color: var(--cor-base);
+    border-radius: 1vw;
+    width: 22vw;
+    height: 80%;
+    margin-bottom: 1vw;
+}
+
+.lateral .filtros button {
+    margin-right: 1vw;
+    margin-top: 1vw;
+    padding: 0.5vw 0.8vw 0.5vw 0.8vw;
+    border: 0.1vw solid var(--cor-primaria);
+    background-color: var(--cor-base);
+    display: flex;
+    align-items: center;
+    border-radius: 0.3vw;
+    cursor: pointer;
+    font-size: 14px;
+    color:var(--cor-primaria);
+}
+
+.lateral .filtros button svg{
+    margin-left: 1vw;
+}
+
+.lateral button:hover{
+    background-color: var(--cor-primaria);
+    color: var(--cor-base);
+}
+
+.lateral #controle-mensal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px; 
+    margin-bottom: 1vw;
+} 
+
+
+.lateral .filtragem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px; 
+}
+
+.lateral hr{
+    border: 1px solid var(--cor-primaria);
+    width: 100%;
+    margin: 1vw;
+}
+
+.lateral h1{
+    font-size: 18px;
+    text-align: left;
+    margin-left: 1vw;
+    margin-bottom: 0.5vw;
+    margin-top: 0.5vw;
+}
+
+.lateral label{
+    margin-bottom: 0;
+    font-size: 14px;
+    color: var(--cor-primaria);
+    font-family: "Baloo 2 Semibold";
+    display: block;
+}
+
+.lateral select{
+    color: var(--cor-primaria);
+    appearance: none;
+    width: 20vw;
+    height: 2vw;
+    font-size: 14px;
+    margin-bottom: 5px;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.3vw;
+    font-family: "Open Sans";
+    font-weight: 300;
+    display: block;
+}
+
+.lateral #controle-mensal .bloco select{
+    appearance: none;
+    width: 9vw;
+    height: 2vw;
+    font-size: 14px;
+    display: block;
+    color: var(--cor-primaria);
+    
+}
+
+.lateral h2{
+    text-align: justify;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.lateral .calendario-mensal h2{
+    text-align: justify;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-top: 3vw;
+}
+
+.lateral #controle-mensal .junto{
+    margin-right: 2vw;
+}
+
+.lateral #controle-mensal h2{
+    margin:0;
+    font-family: "Baloo 2 Semibold";
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.lateral .checklist{
+    display: flex;
+    flex-direction: column;
+    height: 9vh;
+    margin-bottom: 0.5vw;
+}
+
+.lateral .checklist .select-area{
+    height: 1vh;
+}
+
+.lateral .info{
+    position: absolute;
+    width: 20vw;
+    height: auto;
+    background-color: var(--cor-base);
+    border-radius: 1vw;
+    margin-left: 5vw;
+    box-shadow: 2px 2px 4px var(--cor-shadow);
+    z-index: 1;
+}
+
+.lateral .info h2{
+    margin: 1vw;
+    color: var(--cor-primaria);
+    font-size: 14px;
+}
+
+.lateral h1 img{
+    vertical-align: middle; 
+    width: 18px; 
+    margin-left: 4px;
+}
+
+.dot-spinner {
+  --uib-size: 2.8rem;
+  --uib-speed: .9s;
+  --uib-color: var(--cor-base);
+  position: absolute;
+  top: 45vh;
+  left: 65vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: var(--uib-size);
+  width: var(--uib-size);
+}
+
+.dot-spinner__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.dot-spinner__dot::before {
+  content: '';
+  height: 20%;
+  width: 20%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  transform: scale(0);
+  opacity: 0.5;
+  animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(18, 31, 53, 0.3);
+}
+
+.dot-spinner__dot:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.dot-spinner__dot:nth-child(2)::before {
+  animation-delay: calc(var(--uib-speed) * -0.875);
+}
+
+.dot-spinner__dot:nth-child(3) {
+  transform: rotate(90deg);
+}
+
+.dot-spinner__dot:nth-child(3)::before {
+  animation-delay: calc(var(--uib-speed) * -0.75);
+}
+
+.dot-spinner__dot:nth-child(4) {
+  transform: rotate(135deg);
+}
+
+.dot-spinner__dot:nth-child(4)::before {
+  animation-delay: calc(var(--uib-speed) * -0.625);
+}
+
+.dot-spinner__dot:nth-child(5) {
+  transform: rotate(180deg);
+}
+
+.dot-spinner__dot:nth-child(5)::before {
+  animation-delay: calc(var(--uib-speed) * -0.5);
+}
+
+.dot-spinner__dot:nth-child(6) {
+  transform: rotate(225deg);
+}
+
+.dot-spinner__dot:nth-child(6)::before {
+  animation-delay: calc(var(--uib-speed) * -0.375);
+}
+
+.dot-spinner__dot:nth-child(7) {
+  transform: rotate(270deg);
+}
+
+.dot-spinner__dot:nth-child(7)::before {
+  animation-delay: calc(var(--uib-speed) * -0.25);
+}
+
+.dot-spinner__dot:nth-child(8) {
+  transform: rotate(315deg);
+}
+
+.dot-spinner__dot:nth-child(8)::before {
+  animation-delay: calc(var(--uib-speed) * -0.125);
+}
+
+@keyframes pulse0112 {
+  0%,
+  100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+@media (min-width: 1696px) {
+    .lateral .filtros button {
+        font-size: 0.8vw;
+        margin-top: 0;
+    }
+    .lateral select {
+        font-size: 0.8vw;
+        margin-bottom: 3px;
+        
+    }
+    .lateral label {
+        font-size: 0.8vw;
+    }
+
+    .lateral #controle-mensal .bloco select{
+        font-size: 0.8vw;
+    }
+}
+@media (max-width: 1024px) {
+    .lateral .filtros button {
+        font-size: 1.3vw;
+        margin-top: 1vw;
+    }
+    .lateral select {
+        font-size: 12px;
+        margin-bottom: 3px;
+        
+    }
+    .lateral label {
+        font-size: 12px;
+    }
+    .corpo-frame #calendar div.square{
+        font-size: 1.1vw;
+    }
+
+    .lateral #controle-mensal .bloco select{
+        font-size: 12px;
+    }
+    .corpo-frame #calendar #dayline .cabecalho-dayline{
+        font-size: 1.7vw;
+        padding: 0.5vw;
+        height: 12vh;
+    }
+    .corpo-frame #calendar #dayline .cabecalho-dayline#horarios {
+        font-size: 1.5vw;
+    }
+    .corpo-frame #calendar #geral, .corpo-frame #calendar #tecnicoFiltro, .corpo-frame #calendar #turmaFiltro{
+        top: 45vh;
+    }
+    .corpo-frame #calendar #dayline .cabecalho-dayline span{
+        font-size: 1.3vw;
+        padding: 0.5vw;
+    }
+    .corpo-frame #calendar div.square.seis[h],.corpo-frame #calendar div.square.um[h],.corpo-frame #calendar div.square.dois[h],.corpo-frame #calendar div.square.tres[h],.corpo-frame #calendar div.square.quatro[h],.corpo-frame #calendar div.square.cinco[h]{
+        font-size: 1.1vw;
+    }
+    .corpo-frame #calendar #tecnicoFiltro div.hora div,.corpo-frame #calendar #turmaFiltro div.hora div {
+        font-size: 1.3vw;
+    }
+    .corpo-frame #vis-mensal th,.corpo-frame #vis-mensal td {
+        font-size: 1.1vw;
+    }
+    .corpo-frame #vis-mensal #legenda-geral .item {
+        font-size: 1.3vw;
+    }
+    .corpo-frame #visual{
+        margin-bottom: 0.1vw;
+    }
+}
+
+@media (max-width: 850px) {
+    .lateral .filtros button {
+        font-size: 1.2vw;
+        margin-top: 1vw;  
+    }
+
+    .lateral label {
+        font-size: 1.4vw;
+        margin-bottom: 0;
+
+    }
+    .lateral select{
+        font-size: 1.2vw;
+        margin-top: 0;
+        margin-bottom: 0.5vw;
+        padding: 0;
+    }
+    .lateral #controle-mensal .bloco select, .lateral .info h2, .lateral #controle-mensal h2,  span, .corpo-frame .botoes {
+        font-size: 1.3vw;
+    }
+    #horarios {
+        width: 2vw;
+        padding: 0.5vw 1vw 0.5vw 1vw;
+    }
+    .lateral h1 img{
+        width: 2.5vw;
+        height: 2.5vw;
+    }
+     .lateral h1 {
+        font-size: 2vw;
+    }
+
+    .corpo-frame .botoes{
+        height: 5vw;
+    }
+    .corpo-frame #visual h2{
+        font-size: 3.2vw;
+    }
+    .corpo-frame #visual #weekLabel{
+        font-size: 2vw;
+    }
+    .corpo-frame .botoes-arrow img{
+        width: 3vw;
+    }
+    
+}@media (max-width: 650px) {
+    .corpo .checklist{
+        height: 4vw;
+    }
+
+    .lateral select{
+        font-size: 1.4vw;
+        margin-top: 0;
+        margin-bottom: 0.5vw;
+        padding: 0;
+    }
+
+    .lateral h1 {
+        font-size: 2.2vw;
+    }
+
+    .lateral h1 img{
+        width: 3vw;
+        height: 3vw;
+    }
+
+    .lateral #controle-mensal .bloco select, .lateral .info h2, .lateral #controle-mensal h2, span, .corpo-frame .botoes {
+        font-size: 1.5vw;
+    }
+    
+
+    
+
+}
+
+

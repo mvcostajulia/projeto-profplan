@@ -1,0 +1,320 @@
+@import url('https://fonts.cdnfonts.com/css/bauhausc');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+
+@font-face {
+  font-family: 'Baloo 2 Bold';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/baloo2/v21/wXKrE3kTposypRyd51jcAA.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Baloo 2 Semibold';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/baloo2/v21/wXKrE3kTposypRyd51jcAA.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Baloo 2 Regular';
+  font-style: normal;
+  font-weight: 450;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/baloo2/v21/wXKrE3kTposypRyd51jcAA.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Baloo 2 Light';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/baloo2/v21/wXKrE3kTposypRyd51jcAA.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'BauhausC';
+    font-style: normal;
+    font-weight: 500;
+    src: local('BauhausC'), url('https://fonts.cdnfonts.com/s/13274/BauhausC-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans Light';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans Bold';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans Semibold';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
+}
+
+.barra-fixa{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cor-tres);
+    color: var(--cor-base);
+    height: 14vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    user-select: none;
+    z-index: 9999;
+}
+
+.barra-fixa .menu-icon {
+    cursor: pointer;
+}
+
+.barra-fixa .menu {
+    display: none; 
+    list-style: none;
+    background-color: var(--cor-tres);
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 12.5vw;
+    min-width: 15%;
+    padding: 3.5vh 0 0 0;
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #E0E0E0 var(--cor-tres);
+    z-index: 9999;
+}
+
+.barra-fixa .menu li {
+    font-family: "Open Sans Regular";
+    font-size: 12px;  
+}
+
+.barra-fixa .menu li form button{
+    all:unset;
+    cursor: pointer;
+}
+
+.barra-fixa .menu li a {
+    text-decoration: none;
+    color: white;
+    display:inline-flex;
+    padding-top: 1.2vw; 
+    padding-bottom: 1.2vw; 
+    padding-left: 1.42vw; 
+    padding-right: 1.42vw; 
+    align-items: center;
+}
+
+.barra-fixa .menu li a svg{
+    padding-right: 0.7vw; 
+    width: 2.5vw;
+    height: 2.5vw;
+
+}
+
+.barra-fixa .menu li#icon:hover {
+    background-color: var(--cor-tres);
+}
+
+.barra-fixa .menu li:hover {
+    background-color: var(--cor-menu-hover);
+}
+
+.barra-fixa .menu li img{
+    padding:0 30% 5% 30%;
+    height:6vw;
+}
+
+
+.barra-fixa svg#list-icon{
+    margin-left:3.1vw; 
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.barra-fixa h1{
+    font-size:1.5vw ;
+    margin-left:3.1vw; 
+}
+.barra-fixa h2{
+    font-family: "BauhausC";
+    font-size: 2.83vw;
+    margin-left: 3vw;
+    margin-right:3.1vw; 
+}
+
+.barra-fixa #iconImg {
+    border-radius: 50%;
+    border-style: none;
+    width: 4vw;
+    height: 4vw;
+    min-height: 4vw;
+    max-height: 4vw;
+    min-width: 4vw;
+    max-width: 4vw;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.barra-fixa .bem-vindo {
+    font-size: 1.2vw;
+    width: 10vw;
+    margin-left: 50vw;
+    z-index: 1;
+}
+
+.barra-fixa .bem-vindo.bv-ativo {
+    margin-left: 38vw;
+}
+
+.menu-icon.menu-ativo {
+    margin-left: 12.5vw; 
+    z-index: 9999;
+}
+
+.barra-fixa .menu.active {
+    display: block;
+    z-index: 9999;
+}
+
+.barra-fixa .menu::after {
+    content: ''; 
+    display: block;
+    height: 3.5vh; 
+    
+}
+
+@media (min-width: 1500px) {
+    .barra-fixa .menu li a{
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .barra-fixa .menu {
+        min-width: 20%;
+    }
+
+    .barra-fixa h1{
+        font-size:2vw ;
+        margin-left:4vw; 
+    }
+
+    .barra-fixa h2{
+        font-size: 2.8vw;
+    }
+
+    .menu-icon.menu-ativo {
+        margin-left: 20vw; 
+    }
+
+    .barra-fixa .menu li img{
+        padding:0 25% 5% 25%;
+        height:8vw;
+    }
+
+    .barra-fixa .bem-vindo.bv-ativo {
+        margin-left: 20vw;
+    }
+
+    .barra-fixa .bem-vindo {
+        margin-left: 40vw;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .barra-fixa .menu {
+        min-width: 28%;
+    }
+
+    .barra-fixa h1{
+        font-size:2.5vw ;
+        margin-left:5vw; 
+    }
+
+    .barra-fixa h2{
+        font-size: 3vw;
+    }
+
+    .menu-icon.menu-ativo {
+        margin-left: 28vw; 
+    }
+
+    .barra-fixa .menu li img{
+        padding:0 30% 5% 30%;
+        height:10vw;
+    }
+    
+    .barra-fixa .bem-vindo.bv-ativo {
+        margin-left: 15vw;
+    }
+
+    .barra-fixa .bem-vindo {
+        margin-left: 30vw;
+    }
+
+    .barra-fixa .menu li a {
+        font-size: 2.5vw;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .barra-fixa .menu {
+        min-width: 30%;
+    }
+
+    .barra-fixa h1{
+        font-size:2.8vw ;
+        margin-left:4vw; 
+    }
+
+    .barra-fixa h2{
+        font-size: 3.5vw;
+    }
+
+    .barra-fixa .menu li img{
+        padding:0 30% 5% 30%;
+        height:12vw;
+    }
+    .barra-fixa .bem-vindo.bv-ativo {
+        margin-left: 15vw;
+    }
+
+    .barra-fixa .bem-vindo {
+        margin-left: 30vw;
+    }
+
+    .barra-fixa .menu li a {
+        font-size: 3vw;
+    }
+
+}
